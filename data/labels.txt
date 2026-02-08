@@ -1,0 +1,6 @@
+Food Quality (e.g., cold food, wrong item, stale, spilled, undercooked)
+App Bugs (e.g., login errors, stuck checkout, crashes, missing UI elements)
+Payment Issues (e.g., double charge, refund not received, coupon didn’t apply)
+Delivery Issue (e.g., late delivery, driver canceled, never arrived, rude driver)
+Customer Support Experience (e.g., no response, unhelpful chat, delayed resolution)
+Order Accuracy (e.g., Wrong item delivered, Missing items, Gave me someone else’s order)

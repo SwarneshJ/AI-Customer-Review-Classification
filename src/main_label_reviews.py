@@ -9,16 +9,11 @@ from .config import (
 from .clients.openai_client import init_openai_client, call_openai
 from .clients.anthropic_client import init_anthropic_client, call_anthropic
 from .clients.google_client import init_google_client, call_google
-from .clients.xai_client import init_xai_client, call_xai
-from .clients.fireworks_client import init_fireworks_client, call_fireworks
 from .labeling.runner import label_dataframe_with_model
-
+from .clients.deepseek_client import init_deepseek_client, call_deepseek
+from .clients.grok_client import init_grok_client, call_grok
 
 def get_client_and_fn(vendor: str):
-    """
-    Map vendor name -> (client_object, call_function).
-    Extend when you implement xAI / Fireworks.
-    """
     if vendor == "openai":
         client = init_openai_client()
         return client, call_openai
@@ -28,12 +23,12 @@ def get_client_and_fn(vendor: str):
     elif vendor == "google":
         client = init_google_client()
         return client, call_google
-    elif vendor == "xai":
-        client = init_xai_client()
-        return client, call_xai
-    elif vendor == "fireworks":
-        client = init_fireworks_client()
-        return client, call_fireworks
+    elif vendor == "fireworks":  # deepseek
+        client = init_deepseek_client()
+        return client, call_deepseek
+    elif vendor == "xai":  # grok
+        client = init_grok_client()
+        return client, call_grok
     else:
         raise ValueError(f"Unknown vendor: {vendor}")
 

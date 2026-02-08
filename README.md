@@ -58,4 +58,10 @@ Then, we created two datasets. 15k reviews set, and 1k reviews for holdout
 * Order Accuracy
 (e.g., Wrong item delivered, Missing items, Gave me someone else’s order)
 
+* Price / Cost Complaint
+(e.g., delivery fee too high, hidden service charges, too expensive, not worth the cost)
+
+* Others
+(e.g., vague rant with no clear issue, general dissatisfaction without specifics, off-topic comments unrelated to app, restaurant, or service)
+
 

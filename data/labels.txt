@@ -1,6 +1,23 @@
-Food Quality (e.g., cold food, wrong item, stale, spilled, undercooked)
-App Bugs (e.g., login errors, stuck checkout, crashes, missing UI elements)
-Payment Issues (e.g., double charge, refund not received, coupon didn’t apply)
-Delivery Issue (e.g., late delivery, driver canceled, never arrived, rude driver)
-Customer Support Experience (e.g., no response, unhelpful chat, delayed resolution)
-Order Accuracy (e.g., Wrong item delivered, Missing items, Gave me someone else’s order)
+1. Food Quality
+(e.g., cold food, stale taste, spoiled items, undercooked, spilled packaging)
+
+2. App Bugs
+(e.g., login errors, stuck checkout, tracking not updating, app crashes, missing UI elements)
+
+3. Payment Issues
+(e.g., double charge, refund not received, payment failed, promo code didn’t apply)
+
+4. Delivery Issue
+(e.g., late delivery, driver canceled, never arrived, wrong address, rude driver)
+
+5. Customer Support Experience
+(e.g., no response, unhelpful chat, delayed resolution, poor refund handling)
+
+6. Order Accuracy
+(e.g., wrong item delivered, missing items, incomplete order, someone else’s order)
+
+7. Price / Cost Complaint
+(e.g., delivery fee too high, hidden service charges, too expensive, not worth the cost)
+
+8. Others
+(e.g., vague rant with no clear issue, general dissatisfaction without specifics, off-topic comments unrelated to app, restaurant, or service)

@@ -2,8 +2,8 @@ from typing import Optional
 
 import anthropic
 
-from ..config import ANTHROPIC_API_KEY
-from ..prompts import build_prompt
+from config import ANTHROPIC_API_KEY
+from prompts import build_prompt
 
 
 def init_anthropic_client() -> Optional[anthropic.Anthropic]:

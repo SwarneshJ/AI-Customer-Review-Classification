@@ -1,4 +1,4 @@
-from .config import ALLOWED_LABELS
+from config import ALLOWED_LABELS
 
 SYSTEM_PROMPT = """
 You are a text-classification assistant. Your task is to read a 1-star food-delivery review and identify the single primary issue described.
@@ -16,6 +16,8 @@ PAYMENT – Incorrect charges, double charges, refund not issued, promo codes no
 APP_TECH – App crashes, login problems, checkout errors, map not loading, or general technical malfunction.
 
 CUSTOMER_SUPPORT – No response from support, unhelpful or rude agents, unresolved cases, or support actions that worsened the experience.
+
+PRICE_COST – Delivery fee too high, hidden service charges, expensive compared to alternatives, overpriced items, not worth the cost.
 
 OTHERS – The review does not clearly fit any of the above categories, is too vague, unrelated, or primarily emotional without a specific issue.
 

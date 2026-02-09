@@ -1,17 +1,17 @@
 import pandas as pd
 
-from .config import (
+from config import (
     DATA_PATH,
     OUTPUT_DIR,
     TEXT_COL,
     MODELS,
 )
-from .clients.openai_client import init_openai_client, call_openai
-from .clients.anthropic_client import init_anthropic_client, call_anthropic
-from .clients.google_client import init_google_client, call_google
-from .labeling.runner import label_dataframe_with_model
-from .clients.deepseek_client import init_deepseek_client, call_deepseek
-from .clients.grok_client import init_grok_client, call_grok
+from clients.openai_client import init_openai_client, call_openai
+from clients.anthropic_client import init_anthropic_client, call_anthropic
+from clients.google_client import init_google_client, call_google
+from labeling.runner import label_dataframe_with_model
+from clients.deepseek_client import init_deepseek_client, call_deepseek
+from clients.grok_client import init_grok_client, call_grok
 
 def get_client_and_fn(vendor: str):
     if vendor == "openai":
@@ -57,8 +57,13 @@ def main():
 
         out_path = OUTPUT_DIR / f"labels_{vendor}_{model_name}.csv"
         if out_path.exists():
-            print(f"Output already exists at {out_path}, skipping.")
-            continue
+            try:
+                out_path.unlink()
+                print(f"Removed existing output at {out_path}, creating new file.")
+            except Exception as e:
+                print(f"Could not remove existing output {out_path}: {e}")
+                print("Skipping this model to avoid overwriting existing file.")
+                continue
 
         client, call_fn = get_client_and_fn(vendor)
 

@@ -2,4 +2,4 @@ pandas
 python-dotenv
 openai
 anthropic
-google-generativeai
+google-generative-ai

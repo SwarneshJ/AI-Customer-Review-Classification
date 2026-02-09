@@ -1,7 +1,7 @@
 import json
 from typing import List
 
-from ..config import ALLOWED_LABELS, LABEL_ORDER
+from config import ALLOWED_LABELS, LABEL_ORDER
 
 
 def parse_labels(raw: str) -> List[str]:

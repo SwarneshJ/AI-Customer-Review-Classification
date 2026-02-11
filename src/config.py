@@ -50,17 +50,13 @@ LABEL_ORDER = [
 # ---------------------------------------------
 # 6 MODELS FROM 3+ VENDORS
 # ---------------------------------------------
-# MODELS = [
-#     {"vendor": "openai", "name": "gpt-5.1"},                 # strongest OpenAI
-#     {"vendor": "anthropic", "name": "claude-sonnet-4-5"},    # strong Anthropic
-#     {"vendor": "google", "name": "gemini-2.5-pro"},          # strong Google
-#     {"vendor": "fireworks", "name": "deepseek-chat"},        # strong + cheap
-#     {"vendor": "openai", "name": "gpt-4.1-mini"},             # cheap OpenAI
-#     {"vendor": "google", "name": "gemini-2.0-flash"},        # cheap fast model
-# ]
-
 MODELS = [
-    {"vendor": "google", "name": "gemini-2.5-pro"}
+    {"vendor": "openai", "name": "gpt-5.1"},                 # strongest OpenAI
+    {"vendor": "anthropic", "name": "claude-sonnet-4-5"},    # strong Anthropic
+    {"vendor": "anthropic", "name": "claude-haiku-4-5"},     # faster Anthropic
+    {"vendor": "fireworks", "name": "deepseek-chat"},        # strong + cheap
+    {"vendor": "openai", "name": "gpt-4.1-mini"},            # cheap OpenAI
+    {"vendor": "google", "name": "gemini-2.0-flash"},        # cheap fast model
 ]
 
 # ---------------------------------------------

@@ -15,14 +15,43 @@ def call_openai(model_name: str, review: str, client=None) -> str:
 
     prompt = build_prompt(review)
 
-    response = client.chat.completions.create(
-        model=model_name,  # e.g., "gpt-5.1" or "gpt-4.1-mini"
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.0,
-        max_tokens=64,
-    )
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": prompt},
+    ]
+
+    # Choose token parameter based on model name (gpt-5.x uses `max_completion_tokens`)
+    token_kwargs = {}
+    if model_name and model_name.startswith("gpt-5"):
+        token_kwargs["max_completion_tokens"] = 64
+    else:
+        token_kwargs["max_tokens"] = 64
+
+    try:
+        response = client.chat.completions.create(
+            model=model_name,
+            messages=messages,
+            temperature=0.0,
+            **token_kwargs,
+        )
+    except Exception as e:
+        # If the model rejected the chosen token parameter, try the other one.
+        err = str(e)
+        if "max_tokens" in err and "not supported" in err or "Unsupported parameter" in err:
+            # swap to the other parameter and retry
+            alt_kwargs = {}
+            if "max_tokens" in token_kwargs:
+                alt_kwargs["max_completion_tokens"] = token_kwargs.get("max_tokens", 64)
+            else:
+                alt_kwargs["max_tokens"] = token_kwargs.get("max_completion_tokens", 64)
+
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                temperature=0.0,
+                **alt_kwargs,
+            )
+        else:
+            raise
 
     return response.choices[0].message.content.strip()

@@ -71,10 +71,6 @@ def main():
             print(f"Client for {vendor} not initialized, skipping this model.")
             continue
 
-        if vendor in {"xai", "fireworks"}:
-            print(f"{vendor} client not implemented yet, skipping for now.")
-            continue
-
         labeled_df = label_dataframe_with_model(
             df=df,
             text_col=TEXT_COL,

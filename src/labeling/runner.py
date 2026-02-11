@@ -31,19 +31,26 @@ def label_dataframe_with_model(
     n = len(df)
     print(f"Labeling {n} rows with {vendor}/{model_name}...")
 
+    # stop after this many consecutive failures
+    MAX_CONSECUTIVE_FAILURES = 3
+    consecutive_failures = 0
+
     for i in range(n):
         review = str(df.iloc[i][text_col])
 
         try:
             raw = call_fn(model_name, review, client=client)
             labels = parse_labels(raw)
+            # success -> reset consecutive failure counter
+            consecutive_failures = 0
         except Exception as e:
-            # If the first row fails, abort immediately to avoid noisy repeated errors
-            if i == 0:
-                print(f"[{vendor}/{model_name}] Fatal error on first row {i}: {e}")
+            consecutive_failures += 1
+            # abort if too many failures in a row to avoid noisy repeated errors
+            if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+                print(f"[{vendor}/{model_name}] Fatal: {consecutive_failures} consecutive errors; aborting. Last error: {e}")
                 raise
-            # For later rows, log and continue with empty results
-            print(f"[{vendor}/{model_name}] Error on row {i}: {e}")
+            # otherwise log and continue with empty results
+            print(f"[{vendor}/{model_name}] Error on row {i}: {e} (consecutive: {consecutive_failures})")
             raw = ""
             labels = []
 

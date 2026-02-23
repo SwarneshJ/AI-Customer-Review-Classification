@@ -25,23 +25,19 @@ TEXT_COL = "content"  # change this if your CSV uses a different name
 # ---------------------------------------------
 # UPDATED LABEL SET (8 LABELS)
 # ---------------------------------------------
-ALLOWED_LABELS = {
-    "Delivery Issues",
+ALLOWED_LABELS = [
+    "Delivery Issue",
     "Order Accuracy",
-    "Food Quality",
-    "Payment Issues",
-    "App Bugs",
+    "App Bugs / Payment Issue",
     "Customer Support Experience",
     "Price / Cost Complaint",
     "Others"
-}
+]
 
 LABEL_ORDER = [
-    "Delivery Issues",
+    "Delivery Issue",
     "Order Accuracy",
-    "Food Quality",
-    "Payment Issues",
-    "App Bugs",
+    "App Bugs / Payment Issue",
     "Customer Support Experience",
     "Price / Cost Complaint",
     "Others"
@@ -57,6 +53,14 @@ MODELS = [
     {"vendor": "fireworks", "name": "deepseek-chat"},        # strong + cheap
     {"vendor": "openai", "name": "gpt-4.1-mini"},            # cheap OpenAI
     {"vendor": "google", "name": "gemini-2.0-flash"},        # cheap fast model
+]
+
+MODELS = [
+    {"vendor": "openai", "name": "gpt-5.1"},                 # strongest OpenAI
+    {"vendor": "anthropic", "name": "claude-sonnet-4-5"},    # strong Anthropic
+    {"vendor": "anthropic", "name": "claude-haiku-4-5"},     # faster Anthropic
+    {"vendor": "fireworks", "name": "deepseek-chat"},        # strong + cheap
+
 ]
 
 # ---------------------------------------------

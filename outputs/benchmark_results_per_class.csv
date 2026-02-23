@@ -1,0 +1,37 @@
+model,label,precision,recall,f1,support
+anthropic_claude-haiku-4-5,Delivery Issue,0.8847,0.8642,0.8744,302.0
+anthropic_claude-haiku-4-5,Order Accuracy,0.7795,0.7857,0.7826,126.0
+anthropic_claude-haiku-4-5,App Bugs / Payment Issue,0.7607,0.8689,0.8112,267.0
+anthropic_claude-haiku-4-5,Customer Support Experience,0.6095,0.6598,0.6337,97.0
+anthropic_claude-haiku-4-5,Price / Cost Complaint,0.932,0.7619,0.8384,126.0
+anthropic_claude-haiku-4-5,Others,0.6615,0.5244,0.585,82.0
+anthropic_claude-sonnet-4-5,Delivery Issue,0.9029,0.8311,0.8655,302.0
+anthropic_claude-sonnet-4-5,Order Accuracy,0.8108,0.7143,0.7595,126.0
+anthropic_claude-sonnet-4-5,App Bugs / Payment Issue,0.7492,0.8951,0.8157,267.0
+anthropic_claude-sonnet-4-5,Customer Support Experience,0.5079,0.6598,0.574,97.0
+anthropic_claude-sonnet-4-5,Price / Cost Complaint,0.9231,0.7619,0.8348,126.0
+anthropic_claude-sonnet-4-5,Others,0.6949,0.5,0.5816,82.0
+fireworks_deepseek-chat,Delivery Issue,0.8874,0.8609,0.8739,302.0
+fireworks_deepseek-chat,Order Accuracy,0.7786,0.8095,0.7938,126.0
+fireworks_deepseek-chat,App Bugs / Payment Issue,0.7818,0.8989,0.8362,267.0
+fireworks_deepseek-chat,Customer Support Experience,0.6337,0.6598,0.6465,97.0
+fireworks_deepseek-chat,Price / Cost Complaint,0.9091,0.873,0.8907,126.0
+fireworks_deepseek-chat,Others,0.8298,0.4756,0.6047,82.0
+google_gemini-2.0-flash,Delivery Issue,0.9249,0.8974,0.9109,302.0
+google_gemini-2.0-flash,Order Accuracy,0.7676,0.8651,0.8134,126.0
+google_gemini-2.0-flash,App Bugs / Payment Issue,0.8161,0.9476,0.8769,267.0
+google_gemini-2.0-flash,Customer Support Experience,0.863,0.6495,0.7412,97.0
+google_gemini-2.0-flash,Price / Cost Complaint,0.9083,0.8651,0.8862,126.0
+google_gemini-2.0-flash,Others,0.7742,0.5854,0.6667,82.0
+openai_gpt-4.1-mini,Delivery Issue,0.8046,0.9272,0.8615,302.0
+openai_gpt-4.1-mini,Order Accuracy,0.7886,0.7698,0.7791,126.0
+openai_gpt-4.1-mini,App Bugs / Payment Issue,0.8462,0.824,0.8349,267.0
+openai_gpt-4.1-mini,Customer Support Experience,0.6923,0.5567,0.6171,97.0
+openai_gpt-4.1-mini,Price / Cost Complaint,0.9375,0.8333,0.8824,126.0
+openai_gpt-4.1-mini,Others,0.6962,0.6707,0.6832,82.0
+openai_gpt-5.1,Delivery Issue,0.8519,0.8377,0.8447,302.0
+openai_gpt-5.1,Order Accuracy,0.8542,0.6508,0.7387,126.0
+openai_gpt-5.1,App Bugs / Payment Issue,0.7095,0.8689,0.7811,267.0
+openai_gpt-5.1,Customer Support Experience,0.5833,0.5052,0.5414,97.0
+openai_gpt-5.1,Price / Cost Complaint,0.8957,0.8175,0.8548,126.0
+openai_gpt-5.1,Others,0.6914,0.6829,0.6871,82.0

@@ -1,10 +1,7 @@
-import json
 import time
 from typing import Dict
 
 import pandas as pd
-
-from labeling.parser import parse_labels
 
 
 def label_dataframe_with_model(
@@ -17,9 +14,7 @@ def label_dataframe_with_model(
     save_every: int = 100,
 ) -> pd.DataFrame:
     """
-    For each row in df, call LLM and store:
-      - raw response
-      - parsed_labels (JSON string)
+    For each row in df, call LLM and store the raw response as the label.
     """
     df = df.copy()
     raw_col = f"{vendor}_{model_name}_raw"
@@ -40,7 +35,9 @@ def label_dataframe_with_model(
 
         try:
             raw = call_fn(model_name, review, client=client)
-            labels = parse_labels(raw)
+            # Directly use the raw text, stripping any accidental whitespace
+            label_text = str(raw).strip() if raw else ""
+            
             # success -> reset consecutive failure counter
             consecutive_failures = 0
         except Exception as e:
@@ -52,14 +49,9 @@ def label_dataframe_with_model(
             # otherwise log and continue with empty results
             print(f"[{vendor}/{model_name}] Error on row {i}: {e} (consecutive: {consecutive_failures})")
             raw = ""
-            labels = []
+            label_text = ""
 
         df.at[i, raw_col] = raw
-        # store a simple plain-text label (first label) instead of JSON
-        if labels:
-            label_text = labels[0]
-        else:
-            label_text = ""
         df.at[i, labels_col] = label_text
 
         if (i + 1) % save_every == 0:

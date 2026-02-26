@@ -18,7 +18,7 @@ OUTPUT_DIR = BASE_DIR / "outputs"
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
 DATA_PATH = DATA_DIR / "reviews_manual_1000.csv"
-# DATA_PATH = DATA_DIR / "reviews_manual_sample_10.csv"
+# DATA_PATH = DATA_DIR / "reviews_llm_15000.csv"
 
 TEXT_COL = "content"  # change this if your CSV uses a different name
 
@@ -56,10 +56,7 @@ MODELS = [
 ]
 
 MODELS = [
-    {"vendor": "openai", "name": "gpt-5.1"},                 # strongest OpenAI
-    {"vendor": "anthropic", "name": "claude-sonnet-4-5"},    # strong Anthropic
-    {"vendor": "anthropic", "name": "claude-haiku-4-5"},     # faster Anthropic
-    {"vendor": "fireworks", "name": "deepseek-chat"},        # strong + cheap
+    {"vendor": "google", "name": "gemini-2.0-flash"},        # cheap fast model
 
 ]
 
